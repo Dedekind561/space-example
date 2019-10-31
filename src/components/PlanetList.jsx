@@ -10,22 +10,25 @@ class PlanetList extends Component {
   };
 
   componentDidMount() {
-    api.fetchPlanets().then(planets => this.setState({ planets }));
+    api.fetchPlanets().then(planets => this.setState({ planets, isLoading: false }));
   }
 
   render() {
-    return (
-      <div>
-        <PlanetAdder updatePlanets={this.updatePlanets} />
-        {this.state.planets.map((planet, index) => {
-          return <PlanetCard key={planet.planet_id} {...planet} />;
-        })}
-      </div>
-    );
+    const { isLoading } = this.state
+    return isLoading ? <div>Loading...</div> :
+      (
+        <main className="Planets">
+          <PlanetAdder updatePlanets={this.updatePlanets} />
+          <h1>Planets</h1>
+          <ul>
+            {this.state.planets.map(planet => <PlanetCard key={planet.planet_id} {...planet} />)}
+          </ul>
+        </main>
+      );
   }
-  updatePlanets = newlyAddedPlanet => {
+  updatePlanets = newPlanet => {
     this.setState(currentState => {
-      return { planets: [newlyAddedPlanet, ...currentState.planets] };
+      return { planets: [newPlanet, ...currentState.planets], isLoading: false };
     });
   };
 }

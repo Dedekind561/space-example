@@ -13,10 +13,16 @@ class SinglePlanet extends Component {
     });
   }
   render() {
-    const { fun_fact, name, img } = this.state.planet;
-    return name ? (
-      <div>
-        <h1>{name}</h1>
+    const { fun_fact, name, img, au_from_sun, mean_diameter_miles, mean_temp_c, moon_count, type } = this.state.planet;
+    const { isLoading } = this.state;
+    return !isLoading ? (
+      <main>
+        <h1>{name} Fact Page</h1>
+        <p>Planet type: {type}</p>
+        <p>Distance from the sun: {au_from_sun} au</p>
+        <p>Number of moons: {moon_count || 0}</p>
+        <p>Diameter: {mean_diameter_miles} miles</p>
+        <p>Temperature: {mean_temp_c} ºC</p>
         <p>{fun_fact}</p>
         <img
           style={{
@@ -26,8 +32,8 @@ class SinglePlanet extends Component {
           src={img}
           alt="planet"
         />
-      </div>
-    ) : null;
+      </main>
+    ) : <div>Loading...</div>;
   }
 }
 
