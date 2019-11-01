@@ -10,21 +10,26 @@ class PlanetAdder extends Component {
   };
   render() {
     return (
-      <main>
+      <main className="PlanetAdder">
         <form onSubmit={this.handleSubmit}>
           <h3>Add your own planet...</h3>
+          <br/>
           <label htmlFor="name">Name: </label>
-          <input value={this.state.name} onChange={this.handleChange} type="text" id="name" />
+          <input value={this.state.name} onChange={this.handleChange} type="text" id="name"/>
+          <br/>
           <label htmlFor="au_from_sun">Distance from the sun:</label>
-          <input value={this.state.au_from_sun} type="number" step="0.01" min="0" placeholder="in au" id="au_from_sun" onChange={this.handleChange} />
+          <input value={this.state.au_from_sun} type="number" step="0.01" min="0" placeholder="in au" id="au_from_sun" onChange={this.handleChange}/>
+          <br/>
           <label htmlFor="type">Planet type:</label>
           <select value={this.state.type} id="type" onChange={this.handleChange}>
             <option disabled value="">Select a planet type</option>
             <option value="rock">rocky</option>
             <option value="gas">gaseous</option>
           </select>
+          <br/>
           <label htmlFor="img">Image url:</label>
           <input value={this.state.img} type="text" id="img" onChange={this.handleChange} />
+          <br/>
           <button type="submit">add planet</button>
         </form>
       </main>

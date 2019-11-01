@@ -17,10 +17,10 @@ class PlanetList extends Component {
     const { isLoading } = this.state
     return isLoading ? <div>Loading...</div> :
       (
-        <main className="Planets">
+        <main className="PlanetList">
           <PlanetAdder updatePlanets={this.updatePlanets} />
           <h1>Planets</h1>
-          <ul>
+          <ul className="List">
             {this.state.planets.map(planet => <PlanetCard key={planet.planet_id} {...planet} />)}
           </ul>
         </main>

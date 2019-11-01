@@ -3,8 +3,8 @@ import { Link } from '@reach/router'
 
 const Header = () => {
   return (
-    <header>
-      <h1>Space Site</h1>
+    <header className="Header">
+      <h1>NC Space</h1>
       <Link to="/">home</Link> | <Link to="/planets">planets</Link>
     </header>
   );

@@ -16,7 +16,7 @@ class SinglePlanet extends Component {
     const { fun_fact, name, img, au_from_sun, mean_diameter_miles, mean_temp_c, moon_count, type } = this.state.planet;
     const { isLoading } = this.state;
     return !isLoading ? (
-      <main>
+      <main className="SinglePlanet">
         <h1>{name} Fact Page</h1>
         <p>Planet type: {type}</p>
         <p>Distance from the sun: {au_from_sun} au</p>
@@ -26,8 +26,8 @@ class SinglePlanet extends Component {
         <p>{fun_fact}</p>
         <img
           style={{
-            width: '50%',
-            height: '50%'
+            width: '35vh',
+            height: '35vh'
           }}
           src={img}
           alt="planet"

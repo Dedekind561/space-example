@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <Router>
+        <Router className="Router">
           <Home path="/"/>
           <PlanetList path="/planets" />
           <SinglePlanet path="/planets/:planet_id" />
